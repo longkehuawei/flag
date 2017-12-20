@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/collapsing_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:contentScrim="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+                <FrameLayout
+                    android:id="@+id/topPanel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="220dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_beauty"
+                        app:layout_collapseMode="parallax"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="关注此Flag"
+                        android:textSize="14sp"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:paddingTop="10dp"
+                        android:background="#494848"
+                        android:paddingBottom="10dp"
+                        android:textColor="#f4c142"
+                        android:layout_gravity="bottom|right"
+                        android:layout_height="wrap_content"/>
+                </FrameLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:id="@+id/user_name"
+                            android:layout_width="wrap_content"
+                            android:text="丸子菌菌"
+                            android:textColor="#111111"
+                            android:layout_marginLeft="60dp"
+
+                            android:textSize="14sp"
+                            android:layout_height="wrap_content"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:text="2017-11-20"
+                            android:layout_toRightOf="@+id/user_name"
+                            android:layout_alignBottom="@+id/user_name"
+                            android:textColor="#848484"
+                            android:textSize="10sp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_height="wrap_content"/>
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:text="不必去抱怨生活"
+                            android:textColor="#111111"
+                            android:textSize="16sp"
+                            android:drawablePadding="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:drawableLeft="@drawable/xiaoflag"
+                            android:layout_height="wrap_content"/>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:orientation="vertical"
+                            android:layout_height="wrap_content">
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_height="wrap_content">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:text="剩余"
+                                    android:textColor="#333333"
+                                    android:textSize="12sp"
+                                    android:layout_height="wrap_content"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:text="1"
+                                    android:paddingLeft="5dp"
+                                    android:paddingRight="5dp"
+                                    android:textColor="#ea6a6a"
+                                    android:textSize="12sp"
+                                    android:layout_height="wrap_content"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:text="min"
+                                    android:textSize="12sp"
+                                    android:textColor="#333333"
+                                    android:layout_height="wrap_content"/>
+                            </LinearLayout>
+                            <ProgressBar
+                                android:id="@+id/progressBar"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:layout_width="80dp"
+                                android:layout_height="4.5dp"
+                                android:layout_marginTop="4dp"
+                                android:max="100"
+                                android:progress="80"
+
+                                android:progressDrawable="@drawable/progressbar"
+                                android:layout_marginRight="8dp"
+                                android:visibility="visible"/>
+                        </LinearLayout>
+                    </RelativeLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:textColor="#111111"
+                        android:textSize="14sp"
+                        android:lineSpacingExtra="3dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="20dp"
+                        android:text="每天开心快乐的生活是我们每个人追求的目标，每天开心快乐的生活是我们每个人追求的目标。"
+                        android:layout_height="wrap_content"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:text="惩罚方式："
+                            android:textColor="#111111"
+                            android:layout_height="wrap_content"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:text="100"
+                            android:textColor="#ea6a6a"
+                            android:drawableLeft="@drawable/hongbao"
+                            android:drawablePadding="5dp"
+                            android:layout_height="wrap_content"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:text="RMB"
+                            android:paddingLeft="5dp"
+                            android:textColor="#111111"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+
+                    <include layout="@layout/mainfragment_weiboitem_bottombar" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:background="#efefef"
+
+                        android:layout_height="5dp"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/AppTheme.PopupOverlay">
+
+               <!-- <TextView
+                    android:id="@+id/nickname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:text="H07000223"
+                    android:textColor="#111111"
+                    android:textSize="16sp"/>-->
+            </android.support.v7.widget.Toolbar>
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            app:tabIndicatorColor="#f2637a"
+            app:tabTextColor="#8b8b8b"
+            app:tabMaxWidth="0dp"
+            app:tabGravity="fill"
+            app:tabMode="fixed"
+            app:tabSelectedTextColor="#111111"/>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:src="@android:drawable/ic_dialog_email"
+        app:layout_anchor="@id/topPanel"
+        app:layout_anchorGravity="bottom|left|end"/>
+
+</android.support.design.widget.CoordinatorLayout>

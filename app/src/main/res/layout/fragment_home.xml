@@ -1,0 +1,59 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+              android:orientation="vertical"
+             android:layout_height="match_parent"
+             tools:context="com.longke.flag.fragment.HomeFragment">
+
+    <RelativeLayout
+        android:id="@+id/title_bar"
+        android:layout_height="45dp"
+        android:layout_width="match_parent"
+        android:background="@color/title_bar_color">
+        <ImageView
+            android:id="@+id/iv_add"
+            android:layout_centerVertical="true"
+            android:padding="10dp"
+            android:src="@drawable/fabujia"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/follow_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="关注"
+                android:layout_marginRight="15dp"
+                android:drawablePadding="5dp"
+                android:drawableBottom="@drawable/juxing"
+                android:drawableRight="@drawable/xiala"
+                android:textColor="@color/title_text_color"
+                android:textSize="18.0sp" />
+            <TextView
+                android:id="@+id/hot_tv"
+                android:layout_marginLeft="15dp"
+                android:drawablePadding="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="热门"
+                android:textColor="@color/title_text_color"
+                android:textSize="18.0sp" />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/myViewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
+
+</LinearLayout>

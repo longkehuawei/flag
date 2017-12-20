@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/origin_weibo_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    android:background="@drawable/timeline_feedcard_retweet_background_auto"
+    android:clickable="true"
+    android:orientation="vertical">
+
+    <include layout="@layout/home_weiboitem_titlebar" />
+
+     <LinearLayout
+         android:id="@+id/item_layout"
+         android:layout_width="match_parent"
+         android:layout_marginLeft="10dp"
+         android:layout_marginRight="10dp"
+         android:layout_marginBottom="8dp"
+         android:layout_marginTop="10dp"
+         android:layout_height="wrap_content">
+         <LinearLayout
+             android:layout_width="0dp"
+             android:layout_weight="1"
+             android:padding="10dp"
+             android:background="@drawable/bord_shape"
+             android:orientation="vertical"
+             android:layout_height="wrap_content">
+             <TextView
+                 android:layout_width="wrap_content"
+                 android:layout_marginTop="10dp"
+                 android:text="不必去抱怨生活"
+                 android:textSize="@dimen/size_18"
+                 android:textColor="@color/text_content_black"
+                 android:drawablePadding="10dp"
+                 android:drawableTop="@drawable/xiaoflag"
+                 android:layout_height="wrap_content"/>
+
+             <TextView
+                 android:layout_width="wrap_content"
+                 android:textColor="@color/text_content_black"
+                 android:paddingTop="12dp"
+                 android:ellipsize="end"
+                 android:textSize="@dimen/size_18"
+                 android:lineSpacingExtra="2dp"
+                 android:maxLines="5"
+                 android:text="每天开心快乐的生活市我们每个人追求的目标，有人孜孜不倦，苦苦追寻任然找不到快乐"
+                 android:layout_height="wrap_content"/>
+
+             <LinearLayout
+                 android:layout_width="wrap_content"
+                 android:layout_marginTop="10dp"
+                 android:layout_gravity="center_horizontal"
+                 android:layout_height="wrap_content">
+                 <TextView
+                     android:layout_width="wrap_content"
+                     android:text="100"
+                     android:drawablePadding="5dp"
+                     android:drawableLeft="@drawable/hongbao"
+                     android:layout_height="wrap_content"/>
+                 <TextView
+                     android:layout_width="wrap_content"
+                     android:text="RMB"
+                     android:paddingLeft="5dp"
+                     android:textColor="@color/text_content_black"
+                     android:layout_height="wrap_content"/>
+             </LinearLayout>
+             <LinearLayout
+                 android:layout_width="wrap_content"
+                 android:layout_gravity="center_horizontal"
+                 android:layout_marginTop="5dp"
+                 android:layout_height="wrap_content">
+                 <TextView
+                     android:layout_width="wrap_content"
+                     android:text="剩余"
+                     android:textColor="#333333"
+                     android:layout_height="wrap_content"/>
+                 <TextView
+                     android:layout_width="wrap_content"
+                     android:text="1"
+                     android:paddingLeft="5dp"
+                     android:paddingRight="5dp"
+                     android:textColor="#ea6a6a"
+                     android:layout_height="wrap_content"/>
+                 <TextView
+                     android:layout_width="wrap_content"
+                     android:text="min"
+                     android:textColor="#333333"
+                     android:layout_height="wrap_content"/>
+             </LinearLayout>
+             <ProgressBar
+                 android:id="@+id/progressBar"
+                 style="?android:attr/progressBarStyleHorizontal"
+                 android:layout_width="fill_parent"
+                 android:layout_height="7.5dp"
+                 android:layout_marginTop="4dp"
+                 android:max="100"
+                 android:progress="80"
+
+                 android:progressDrawable="@drawable/progressbar"
+                 android:layout_marginRight="8dp"
+                 android:visibility="visible"/>
+         </LinearLayout>
+         <com.longke.flag.view.SquareImageView
+             android:layout_width="0dp"
+             android:layout_weight="2.4"
+             android:scaleType="fitXY"
+             android:src="@drawable/nihaohuai"
+             android:layout_height="match_parent">
+
+         </com.longke.flag.view.SquareImageView>
+     </LinearLayout>
+
+
+
+    <include layout="@layout/mainfragment_weiboitem_bottombar" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:background="#e6e6e6"
+        android:layout_height="4dp"/>
+</LinearLayout>
+
+

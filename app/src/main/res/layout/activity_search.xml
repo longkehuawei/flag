@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_search"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#e3e4e6"
+    tools:context="com.longke.flag.activity.SearchActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/searchView"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="5dp"
+            android:paddingLeft="10dp"
+            android:layout_toLeftOf="@+id/cancel_btn"
+            android:gravity="center_vertical"
+            android:hint="搜索关注人的flag"
+            android:textColorHighlight="#9b9b9b"
+            android:textColor="@color/text_content_black"
+            android:drawablePadding="5dp"
+            android:drawableLeft="@drawable/searchbar_second_textfield_search_icon"
+            android:background="@drawable/search_shape"
+            />
+        <TextView
+            android:id="@+id/cancel_btn"
+            android:layout_width="wrap_content"
+            android:text="取消"
+            android:padding="10dp"
+            android:textSize="18sp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:textColor="@color/text_content_black"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="历史记录"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="16dp"
+        android:textSize="16sp"
+        android:textColor="@color/text_content_black"
+        android:layout_height="wrap_content"/>
+    <com.longke.flag.view.FlowTagLayout
+        android:id="@+id/hostory_tag_layout"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="16dp"
+        style="@style/TagLayout" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="热门搜索"
+        android:textSize="16sp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="16dp"
+        android:textColor="@color/text_content_black"
+        android:layout_height="wrap_content"/>
+    <com.longke.flag.view.FlowTagLayout
+        android:layout_marginTop="20dp"
+        android:id="@+id/hot_tag_layout"
+        android:layout_marginLeft="16dp"
+        style="@style/TagLayout" />
+
+</LinearLayout>

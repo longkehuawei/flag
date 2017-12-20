@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="#e6e6e6"
+              android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/searchView"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="5dp"
+        android:paddingLeft="10dp"
+        android:gravity="center_vertical"
+        android:text="搜索关注人的flag"
+        android:drawablePadding="5dp"
+        android:drawableLeft="@drawable/searchbar_second_textfield_search_icon"
+        android:background="@drawable/rect_white"
+         />
+
+</LinearLayout>

@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+                android:background="@color/white"
+              android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+
+            android:orientation="vertical" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:src="@drawable/dengluflag"
+                android:layout_marginTop="30dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="wrap_content"/>
+
+            <LinearLayout
+                android:id="@+id/ll_quick_login"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25.0dip"
+                android:orientation="vertical"
+                android:visibility="visible" >
+
+                <EditText
+                    android:id="@+id/et_quick_phone"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:background="@null"
+                    android:hint="手机号"
+                    android:inputType="phone"
+                    android:maxLength="11"
+                    android:padding="16.0dip"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true"
+                    android:textColorHint="@color/gray01"
+                    android:textSize="@dimen/size_20" />
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="#eaeaea" />
+
+                <EditText
+                    android:id="@+id/et_pwd"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginRight="5.0dip"
+                    android:background="@null"
+                    android:hint="密码"
+                    android:inputType="numberPassword"
+                    android:padding="16.0dip"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true"
+                    android:textColorHint="@color/gray01"
+                    android:textSize="@dimen/size_20" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="#eaeaea" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/login_btn"
+                android:layout_width="fill_parent"
+                android:layout_height="40.0dip"
+                android:layout_marginLeft="16.0dip"
+                android:layout_marginRight="16.0dip"
+                android:layout_marginTop="15.0dip"
+                android:background="@drawable/round_btn_orange_self_selector"
+                android:text="@string/login"
+                android:textColor="@color/white"
+                android:textSize="18.0sp"
+                />
+
+         <RelativeLayout
+             android:layout_width="match_parent"
+             android:paddingLeft="16dp"
+             android:paddingRight="16dp"
+             android:paddingTop="5dp"
+             android:layout_height="wrap_content">
+             <TextView
+                 android:id="@+id/forget_pwd"
+                 android:layout_width="wrap_content"
+                 android:layout_alignParentLeft="true"
+                 android:text="@string/wangjimima"
+                 android:textColor="#4574aa"
+                 android:textSize="14sp"
+                 android:paddingTop="10dp"
+                 android:paddingBottom="10dp"
+                 android:paddingRight="20dp"
+                 android:layout_height="wrap_content"/>
+             <TextView
+                 android:id="@+id/register"
+                 android:layout_width="wrap_content"
+                 android:text="@string/kuaisuzhuce"
+                 android:textColor="#4574aa"
+                 android:textSize="14sp"
+                 android:paddingTop="10dp"
+                 android:paddingBottom="10dp"
+                 android:paddingLeft="20dp"
+                 android:layout_alignParentRight="true"
+                 android:layout_height="wrap_content"/>
+         </RelativeLayout>
+
+
+        </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical" >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_margin="16dp"
+            android:layout_height="wrap_content">
+            <View
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_gravity="center_vertical"
+                android:background="#eaeaea"
+                android:layout_height="1px"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textSize="14sp"
+                android:textColor="#8a8a8a"
+                android:text="@string/union_login"
+                />
+            <View
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_gravity="center_vertical"
+                android:background="#eaeaea"
+                android:layout_height="1px"/>
+        </LinearLayout>
+
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="48.0dip"
+            android:layout_marginTop="10.0dip"
+            android:layout_marginLeft="70dp"
+            android:layout_marginRight="70dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/weibo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:drawableTop="@drawable/xinlangweibo"
+                android:gravity="center_horizontal"
+                android:text="@string/weibo"
+                android:drawablePadding="5dp"
+                android:textColor="@color/content_color"
+                android:textSize="12.0sp"
+                />
+
+            <TextView
+                android:id="@+id/weixin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/content_color"
+                android:drawableTop="@drawable/weixindenglu"
+                android:textSize="12.0sp"
+                android:drawablePadding="5dp"
+                android:text="@string/weixin"
+                android:visibility="visible" />
+
+            <TextView
+                android:id="@+id/qq"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="center"
+                android:drawablePadding="5dp"
+                android:gravity="center_horizontal"
+                android:text="@string/qq"
+                android:drawableTop="@drawable/qqdenglu"
+                android:textColor="@color/content_color"
+                android:textSize="12.0sp" />
+
+
+
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>
