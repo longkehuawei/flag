@@ -3,6 +3,7 @@ package com.longke.flag.activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -67,6 +68,8 @@ public class RegisterActivity extends BaseActivity {
     ImageView mImgCode;
     String sessionId;
     ImageCodeRes data;
+    int from;
+    final MyCountDownTimer myCountDownTimer = new MyCountDownTimer(60000,1000);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +78,11 @@ public class RegisterActivity extends BaseActivity {
         getSupportActionBar().hide();// 隐藏ActionBar
         setContentView(R.layout.activity_register_view);
         ButterKnife.inject(this);
+        from=getIntent().getIntExtra("from",0);
+        if(from==1){
+            mAddrssNameTv.setText("找回密码");
+            mBtGetCheckCode.setText("修改");
+        }
         HttpUtil.getInstance().GetTimestamp("getimagecode");
 
         Log.d(TAG, "dtimestamp" + System.currentTimeMillis());
@@ -120,13 +128,15 @@ public class RegisterActivity extends BaseActivity {
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }
-            HttpUtil.getInstance().getOkHttp().get().addHeader("X_MACHINE_ID", "ED5E3E2585B2477ABCA664EAAF32DC2A").addHeader("X_REG_SECRET", "er308343cf381bd4a37a185654035475d4c67842").addHeader("cookie",sessionId).url(Urls.GetPhoneValidCode)
+            HttpUtil.getInstance().getOkHttp().get().addHeader("X_MACHINE_ID", "ED5E3E2585B2477ABCA664EAAF32DC2A")
+                    .addHeader("X_REG_SECRET", "er308343cf381bd4a37a185654035475d4c67842").addHeader("cookie",sessionId)
+                    .url(Urls.GetPhoneValidCode)
                         .addParam("timestamp", messageEvent.getMessage())
                         .addParam("mobile", mEtPhone.getText().toString())
                         .addParam("failureSecond", "60000")
                         .addParam("imgValidCode",new String(encodeBase64) )
-                        .addParam("checkHasRegist",false+"" )
-                        .addParam("type","1" )
+                        .addParam("checkHasRegist",(from==1)?"true":"false" )
+                        .addParam("type",(from==1)?"2":"1" )
                         .tag(this)
                         .enqueue(new JsonResponseHandler() {
                             @Override
@@ -169,7 +179,9 @@ public class RegisterActivity extends BaseActivity {
       } catch (UnsupportedEncodingException e) {
           e.printStackTrace();
       }
-      HttpUtil.getInstance().getOkHttp().post().addHeader("X_MACHINE_ID", "ED5E3E2585B2477ABCA664EAAF32DC2A").addHeader("X_REG_SECRET", "er308343cf381bd4a37a185654035475d4c67842").addHeader("cookie",sessionId).url(Urls.Register)
+      HttpUtil.getInstance().getOkHttp().post().addHeader("X_MACHINE_ID", "ED5E3E2585B2477ABCA664EAAF32DC2A")
+              .addHeader("X_REG_SECRET", "er308343cf381bd4a37a185654035475d4c67842").addHeader("cookie",sessionId)
+              .url((from==1)?Urls.ForgetPwd:Urls.Register)
               .addParam("Timestamp", timestamp)
               .addParam("Mobile", mEtPhone.getText().toString())
               .addParam("Pwd", mEtPwd.getText().toString())
@@ -181,7 +193,13 @@ public class RegisterActivity extends BaseActivity {
                   public void onSuccess(int statusCode, JSONObject response) {
                       try {
                           if(response.getBoolean("Success")){
-                                startActivity(new Intent(RegisterActivity.this,MainActivity.class));
+                                if(from==1){
+                                    ToastUtil.showShort(RegisterActivity.this,"设置密码成功");
+                                }else{
+                                    ToastUtil.showShort(RegisterActivity.this,"注册成功");
+                                    startActivity(new Intent(RegisterActivity.this,MainActivity.class));
+                                }
+
                                 finish();
                           }else{
                               ToastUtil.showShort(RegisterActivity.this,response.getString("Message"));
@@ -216,6 +234,7 @@ public class RegisterActivity extends BaseActivity {
                 HttpUtil.getInstance().GetTimestamp("getimagecode");
                 break;
             case R.id.bt_get_sms_code:
+                myCountDownTimer.start();
                 HttpUtil.getInstance().GetTimestamp("getphonecode");
                 break;
             case R.id.bt_get_check_code:
@@ -243,6 +262,29 @@ public class RegisterActivity extends BaseActivity {
                 HttpUtil.getInstance().GetTimestamp("Register");
                 //startActivity(new Intent(RegisterActivity.this,MainActivity.class));
                 break;
+        }
+    }
+    public class MyCountDownTimer extends CountDownTimer {
+        public MyCountDownTimer(long millisInFuture, long countDownInterval) {
+            super(millisInFuture, countDownInterval);
+        }
+
+        //计时过程
+        @Override
+        public void onTick(long l) {
+            //防止计时过程中重复点击
+            mBtGetSmsCode.setClickable(false);
+            mBtGetSmsCode.setText(l/1000+"s");
+
+        }
+
+        //计时完毕的方法
+        @Override
+        public void onFinish() {
+            //重新给Button设置文字
+            mBtGetSmsCode.setText("重新获取验证码");
+            //设置可点击
+            mBtGetSmsCode.setClickable(true);
         }
     }
 }

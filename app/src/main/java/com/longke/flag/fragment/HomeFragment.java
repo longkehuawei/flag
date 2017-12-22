@@ -2,6 +2,7 @@ package com.longke.flag.fragment;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -19,7 +20,9 @@ import android.widget.TextView;
 
 import com.flyco.systembar.SystemBarHelper;
 import com.longke.flag.R;
+import com.longke.flag.activity.PublishFlagActivity;
 import com.longke.flag.adapter.TabFragmentPagerAdapter;
+import com.longke.flag.util.ToastUtil;
 import com.longke.flag.view.AndroidActionSheetFragment;
 
 import java.util.ArrayList;
@@ -142,7 +145,11 @@ public class HomeFragment extends Fragment {
                         .setItems(new String[]{"1", "2", "3", "4", "5", "6"}).setOnItemClickListener(new AndroidActionSheetFragment.OnItemClickListener() {
                     @Override
                     public void onItemClick(int position) {
+                        if(position==0){
+                            startActivity(new Intent(getActivity(),PublishFlagActivity.class));
+                        }else{
 
+                        }
                     }
                 }).show();
                 break;

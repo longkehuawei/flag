@@ -122,4 +122,7 @@
     <color name="common_top_tab_index_select_color">#0091ff</color>
     <color name="font_black_50">#505050</color>
     <color name="grey_listview_divider">#ebecf1</color>
+    <color name="buttonColor">#ffffff</color>
+    <color name="buttonStroke">#333333</color>
+    <color name="buttonColorIn">#f2637a</color>
 </resources>

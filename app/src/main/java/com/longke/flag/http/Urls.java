@@ -11,5 +11,6 @@ public class Urls {
     public static final String GetPhoneValidCode=BASE_URL+"/api/User/GetPhoneValidCode";
     public static final String Login=BASE_URL+"/api/User/Login";
     public static final String Register=BASE_URL+"/api/User/Register";
+    public static final String ForgetPwd=BASE_URL+"/api/User/ForgetPwd";
     public static final String Base64Encode=BASE_URL+"/api/Common/Base64Encode";
 }

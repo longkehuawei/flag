@@ -104,10 +104,10 @@ public class LoginActivity extends AppCompatActivity {
                 HttpUtil.getInstance().GetTimestamp("Login");
                 break;
             case R.id.forget_pwd:
-
+                startActivity(new Intent(LoginActivity.this,RegisterActivity.class).putExtra("from",1));
                 break;
             case R.id.register:
-                startActivity(new Intent(LoginActivity.this,RegisterActivity.class));
+                startActivity(new Intent(LoginActivity.this,RegisterActivity.class).putExtra("from",0));
                 break;
             case R.id.weibo:
                 break;

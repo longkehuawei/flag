@@ -18,6 +18,8 @@
     <dimen name="home_weiboitem_bottombar_font">12sp</dimen><!--底部Bar的字体大小-->
     <dimen name="sticky_nav_host_line_height">1dp</dimen>
     <dimen name="sticky_nav_host_height">44dp</dimen>
+    <dimen name="pswRadioButtonWidth">10dp</dimen>
+    <dimen name="pswRadioButtonStrokeWidth">1dp</dimen>
 
 
 </resources>
