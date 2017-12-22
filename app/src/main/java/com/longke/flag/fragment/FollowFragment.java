@@ -85,11 +85,11 @@ public class FollowFragment extends Fragment implements PullLoadMoreRecyclerView
             }
         });
         mPullLoadMoreRecyclerView.setAdapter(mRecyclerViewAdapter);
-        getData();
+       // getData();
 
     }
 
-    private void getData() {
+   /* private void getData() {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -104,7 +104,7 @@ public class FollowFragment extends Fragment implements PullLoadMoreRecyclerView
             }
         }, 1000);
 
-    }
+    }*/
 
    /* public void clearData() {
         mRecyclerViewAdapter.clearData();
@@ -126,14 +126,14 @@ public class FollowFragment extends Fragment implements PullLoadMoreRecyclerView
     public void onRefresh() {
         Log.e("wxl", "onRefresh");
         setRefresh();
-        getData();
+       // getData();
     }
 
     @Override
     public void onLoadMore() {
         Log.e("wxl", "onLoadMore");
         mCount = mCount + 1;
-        getData();
+       // getData();
     }
 
     private void setRefresh() {

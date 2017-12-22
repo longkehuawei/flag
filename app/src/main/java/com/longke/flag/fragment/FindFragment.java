@@ -90,7 +90,7 @@ public class FindFragment extends Fragment implements PullLoadMoreRecyclerView.P
                     @Override
                     public void run() {
                         // mRecyclerViewAdapter.addAllData(setList());
-                        mPullLoadMoreRecyclerView.setPullLoadMoreCompleted();
+                      //  mPullLoadMoreRecyclerView.setPullLoadMoreCompleted();
                     }
                 });
 

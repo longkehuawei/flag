@@ -10,12 +10,14 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.flyco.systembar.SystemBarHelper;
 import com.longke.flag.R;
 import com.longke.flag.adapter.TabFragmentPagerAdapter;
 import com.longke.flag.view.AndroidActionSheetFragment;
@@ -105,6 +107,25 @@ public class HomeFragment extends Fragment {
             }
         });
         return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        SystemBarHelper.tintStatusBar(getActivity(), getResources().getColor(R.color.white));
+    }
+    private void full(boolean enable) {
+        if (enable) {
+            WindowManager.LayoutParams lp =  getActivity().getWindow().getAttributes();
+            lp.flags |= WindowManager.LayoutParams.FLAG_FULLSCREEN;
+            getActivity().getWindow().setAttributes(lp);
+            getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+        } else {
+            WindowManager.LayoutParams attr = getActivity().getWindow().getAttributes();
+            attr.flags &= (~WindowManager.LayoutParams.FLAG_FULLSCREEN);
+            getActivity().getWindow().setAttributes(attr);
+            getActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+        }
     }
 
     @Override
