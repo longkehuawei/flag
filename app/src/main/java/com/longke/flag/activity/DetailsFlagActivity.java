@@ -30,8 +30,7 @@ import butterknife.InjectView;
 public class DetailsFlagActivity extends AppCompatActivity {
 
 
-    @InjectView(R.id.nickname)
-    TextView mNickname;
+
     @InjectView(R.id.toolbar)
     Toolbar mToolbar;
     @InjectView(R.id.collapsing_toolbar)
@@ -89,7 +88,7 @@ public class DetailsFlagActivity extends AppCompatActivity {
             public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
 //                boolean showTitle = mCollapsingToolbar.getHeight() + verticalOffset <= mToolbar.getHeight();
                 boolean showTitle = mCollapsingToolbar.getHeight() + verticalOffset <= mToolbar.getHeight() * 2;
-                mNickname.setVisibility(showTitle ? View.VISIBLE : View.GONE);
+               // mNickname.setVisibility(showTitle ? View.VISIBLE : View.GONE);
             }
         });
 

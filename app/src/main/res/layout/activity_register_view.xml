@@ -131,7 +131,7 @@
                         android:textSize="@dimen/size_20" />
                     <Button
                         android:id="@+id/bt_get_sms_code"
-                        android:layout_width="100.0dip"
+                        android:layout_width="120.0dip"
                         android:layout_height="35.0dip"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
