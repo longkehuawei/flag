@@ -1,46 +1,19 @@
 package com.longke.flag.activity;
 
-import android.content.Intent;
-import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
-import android.support.v7.widget.OrientationHelper;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
-import android.text.Editable;
-import android.text.TextUtils;
-import android.text.TextWatcher;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.RadioGroup;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import android.support.v7.app.AppCompatActivity;
 
 import com.longke.flag.R;
-import com.longke.flag.http.Urls;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
-import butterknife.OnClick;
 
 /**
  * 创建病历档案
  */
-public class CreateMedicalRecordActivity extends BaseActivity {
+public class PublishFlagActivity extends AppCompatActivity {
 
 
    /* @InjectView(R.id.radioGroupID)
@@ -100,9 +73,9 @@ public class CreateMedicalRecordActivity extends BaseActivity {
             }
         });
         String photo_dir = AbFileUtil
-                .getImageDownloadDir(CreateMedicalRecordActivity.this);
+                .getImageDownloadDir(PublishFlagActivity.this);
         if (AbStrUtil.isEmpty(photo_dir)) {
-            AbToastUtil.showToast(CreateMedicalRecordActivity.this, "�洢��������");
+            AbToastUtil.showToast(PublishFlagActivity.this, "�洢��������");
         } else {
             PHOTO_DIR = new File(photo_dir);
         }
@@ -113,20 +86,20 @@ public class CreateMedicalRecordActivity extends BaseActivity {
 
                 if(TextUtils.isEmpty(nameTv.getText().toString().trim())){
                     AbToastUtil
-                            .showToast(CreateMedicalRecordActivity.this,
+                            .showToast(PublishFlagActivity.this,
                                     "请先填写报告名称");
                     return;
                 }
                 if(TextUtils.isEmpty(timeTv.getText().toString().trim())){
                     AbToastUtil
-                            .showToast(CreateMedicalRecordActivity.this,
+                            .showToast(PublishFlagActivity.this,
                                     "请先填写检验时间/采用时间");
                     return;
                 }
                 if (TextUtils.isEmpty(et_content.getText()
                         .toString().trim()) && selectedPhotos.size() == 1) {
                     AbToastUtil
-                            .showToast(CreateMedicalRecordActivity.this,
+                            .showToast(PublishFlagActivity.this,
                                     "请填写描述或上传病历图片");
                     return;
                 }
@@ -147,7 +120,7 @@ public class CreateMedicalRecordActivity extends BaseActivity {
         questId = getIntent().getStringExtra("questId");
         title = getIntent().getStringExtra("title");
         //titleText.setText(title);
-        AbAppUtil.closeSoftInput(CreateMedicalRecordActivity.this);
+        AbAppUtil.closeSoftInput(PublishFlagActivity.this);
 
 
     }
@@ -163,7 +136,7 @@ public class CreateMedicalRecordActivity extends BaseActivity {
         et_content = (EditText) findViewById(R.id.detailInfo);
         titleText = (TextView) findViewById(R.id.current_section);
         countText = (TextView) findViewById(R.id.count_tv);
-        mInflater = LayoutInflater.from(CreateMedicalRecordActivity.this);
+        mInflater = LayoutInflater.from(PublishFlagActivity.this);
         et_content.addTextChangedListener(watcher);
         radioGroupID.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -180,14 +153,14 @@ public class CreateMedicalRecordActivity extends BaseActivity {
     @Override
     public void onResume() {
         super.onResume();
-        MobclickAgent.onPageStart(CreateMedicalRecordActivity.class.getName());
+        MobclickAgent.onPageStart(PublishFlagActivity.class.getName());
         MobclickAgent.onResume(this);
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        MobclickAgent.onPageEnd(CreateMedicalRecordActivity.class.getName());
+        MobclickAgent.onPageEnd(PublishFlagActivity.class.getName());
         MobclickAgent.onPause(this);
     }
 
@@ -280,7 +253,7 @@ public class CreateMedicalRecordActivity extends BaseActivity {
         RequestParams params = new RequestParams();
         HttpUtils http = new HttpUtils();
         params.addBodyParameter("userId",
-                AbSharedUtil.getInt(CreateMedicalRecordActivity.this, Constants.USER_ID)
+                AbSharedUtil.getInt(PublishFlagActivity.this, Constants.USER_ID)
                         + "");
 
         if (bingLi != null) {
@@ -311,15 +284,15 @@ public class CreateMedicalRecordActivity extends BaseActivity {
                 new RequestCallBack<String>() {
                     @Override
                     public void onStart() {
-                        SVProgressHUD.showWithStatus(CreateMedicalRecordActivity.this, getString(R.string.send_case_ing));
+                        SVProgressHUD.showWithStatus(PublishFlagActivity.this, getString(R.string.send_case_ing));
                     }
 
                     @Override
                     public void onLoading(long total, long current,
                                           boolean isUploading) {
-                        SVProgressHUD.getProgressBar(CreateMedicalRecordActivity.this).setProgress((int) (current * 100 / total));
-                        SVProgressHUD.getInstance(CreateMedicalRecordActivity.this).getmSharedView().setText(getString(R.string.shangchuan) + (current * 100 / total) + "%");
-                        //SVProgressHUD.showInfoWithStatus(CreateMedicalRecordActivity.this,);
+                        SVProgressHUD.getProgressBar(PublishFlagActivity.this).setProgress((int) (current * 100 / total));
+                        SVProgressHUD.getInstance(PublishFlagActivity.this).getmSharedView().setText(getString(R.string.shangchuan) + (current * 100 / total) + "%");
+                        //SVProgressHUD.showInfoWithStatus(PublishFlagActivity.this,);
                     }
 
                     @Override
@@ -329,7 +302,7 @@ public class CreateMedicalRecordActivity extends BaseActivity {
                             send_msg_btn.setEnabled(true);
                             if (obj.has("success")) {
                                 if (obj.getBoolean("success")) {
-                                    SVProgressHUD.dismiss(CreateMedicalRecordActivity.this);
+                                    SVProgressHUD.dismiss(PublishFlagActivity.this);
                                     setResult(RESULT_OK);
                                     finish();
                                 }
@@ -346,8 +319,8 @@ public class CreateMedicalRecordActivity extends BaseActivity {
                     @Override
                     public void onFailure(HttpException error, String msg) {
                         send_msg_btn.setEnabled(true);
-                        SVProgressHUD.dismiss(CreateMedicalRecordActivity.this);
-                        AbToastUtil.showToast(CreateMedicalRecordActivity.this, getString(R.string.wangluoyichang));
+                        SVProgressHUD.dismiss(PublishFlagActivity.this);
+                        AbToastUtil.showToast(PublishFlagActivity.this, getString(R.string.wangluoyichang));
                     }
                 });
     }
@@ -370,7 +343,7 @@ public class CreateMedicalRecordActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        UILApplication.remove(CreateMedicalRecordActivity.this);
+        UILApplication.remove(PublishFlagActivity.this);
     }
 
     @OnClick(R.id.time_layout)

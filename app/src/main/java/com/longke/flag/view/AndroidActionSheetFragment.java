@@ -28,6 +28,8 @@ import com.longke.flag.R;
 
 import java.lang.reflect.Method;
 
+import static android.R.attr.id;
+
 /**
  * Created by Clevo on 2016/6/10.
  */
@@ -41,6 +43,8 @@ public class AndroidActionSheetFragment extends Fragment {
     View realView;
     //添加进入的第一个view
     View pop_child_layout;
+    View publishDong;
+    View publishFlag;
 
     public static AndroidActionSheetFragment newItemInstance(String title, String[] items) {
         AndroidActionSheetFragment fragment=new AndroidActionSheetFragment();
@@ -83,6 +87,28 @@ public class AndroidActionSheetFragment extends Fragment {
 
     private void initViews(View view) {
         pop_child_layout=view.findViewById(R.id.pop_child_layout);
+        publishDong = view.findViewById(R.id.publish_dong);
+        publishFlag = view.findViewById(R.id.publish_flag);
+        publishDong.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(onItemClickListener!=null){
+                    onItemClickListener.onItemClick(1);
+                    dismiss();
+                }
+
+            }
+        });
+        publishFlag.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(onItemClickListener!=null){
+                    onItemClickListener.onItemClick(0);
+                    dismiss();
+                }
+
+            }
+        });
         pop_child_layout.setVisibility(View.INVISIBLE);
         realView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -210,6 +236,7 @@ public class AndroidActionSheetFragment extends Fragment {
             AndroidActionSheetFragment fragment;
             if (choice==CHOICE.ITEM) {
                 fragment=AndroidActionSheetFragment.newItemInstance(title, items);
+
                 fragment.setOnItemClickListener(onItemClickListener);
                 fragment.setOnCancelListener(onCancelListener);
                 fragment.show(fragmentManager, tag);
